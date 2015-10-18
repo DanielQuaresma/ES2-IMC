@@ -32,6 +32,7 @@ public class JFrameIMC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jtPeso = new javax.swing.JTextField();
         jtAltura = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -198,6 +199,7 @@ public class JFrameIMC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
