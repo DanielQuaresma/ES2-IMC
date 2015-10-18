@@ -4,14 +4,20 @@ public class Pessoa {
 
     private int peso;
     private double altura;
-    private String sexo;
+    private char[] sexo = new char[1];
+        
+    public Pessoa(int peso,double altura, char[] sexo) {
+        this.altura = altura;
+        this.peso = peso;
+        this.sexo[0] = sexo[0];
+    }
 
     public Pessoa() {
         this.altura = 0;
         this.peso = 0;
-        this.sexo = "";
+        this.sexo[0] ='a';
     }
-
+    
     public int getPeso() {
         return peso;
     }
@@ -28,12 +34,8 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setSexo(char sexo) {
+        this.sexo[0] = sexo;
     }
 
     
