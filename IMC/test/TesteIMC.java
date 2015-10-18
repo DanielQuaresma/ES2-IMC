@@ -34,7 +34,6 @@ public class TesteIMC {
         p.setPeso(70);
         p.setAltura(1.80);
         p.setSexo("M");
-        System.out.println(p.Mensagem());
         Assert.assertEquals(p.Mensagem(), "Você está muito bem! Continue assim!");
     }    
     
@@ -44,7 +43,6 @@ public class TesteIMC {
         p.setPeso(60);
         p.setAltura(1.80);
         p.setSexo("f");
-        System.out.println(p.Mensagem());
         Assert.assertEquals(p.Mensagem(), "Você está muito bem! Continue assim!");
     }
     
@@ -54,8 +52,16 @@ public class TesteIMC {
         p.setPeso(50);
         p.setAltura(1.80);
         p.setSexo("f");
-        System.out.println(p.Mensagem());
         Assert.assertEquals(p.Mensagem(), "Você está abaixo do peso recomendado.");
     }
     
+     @Test
+    public void testeImcModerado(){
+        Pessoa p = new Pessoa();
+        p.setPeso(100);
+        p.setAltura(2.00);
+        p.setSexo("f");
+        System.out.println(p.Mensagem());
+        Assert.assertEquals(p.Mensagem(), "Você está acima do peso recomendado. Cuidado!");
+    }
 }
