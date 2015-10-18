@@ -61,7 +61,16 @@ public class TesteIMC {
         p.setPeso(100);
         p.setAltura(2.00);
         p.setSexo("f");
-        System.out.println(p.Mensagem());
         Assert.assertEquals(p.Mensagem(), "Você está acima do peso recomendado. Cuidado!");
+    }
+    
+    @Test
+    public void testeImcElevado(){
+        Pessoa p = new Pessoa();
+        p.setPeso(100);
+        p.setAltura(1.70);
+        p.setSexo("m");
+        System.out.println(p.Mensagem());
+        Assert.assertEquals(p.Mensagem(), "Você está Obeso. Procure o acompanhamento de um nutricionista e realizar mais atividades físicas!");
     }
 }
