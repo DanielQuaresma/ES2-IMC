@@ -37,7 +37,7 @@ public class IMC {
             return msg = "Você está muito bem! Continue assim!";            
         } 
 
-        return "a";
+        return "b";
     }
 
 }
