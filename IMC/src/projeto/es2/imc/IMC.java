@@ -28,6 +28,10 @@ public class IMC {
         }
         double c = p / (a * a);
         
+        //IMC MASCULINO ABAIXO DE 17.9
+        if((c < 17.9) &&(s.equals("M")))
+            return msg="Valor incorreto para o sexo Masculino";
+        
         //IMC Baixo
         if ((c >= 17.9) && (c < 19) && (s.equals("M"))) {
             return msg = "Você está abaixo do peso recomendado.";
