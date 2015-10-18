@@ -24,7 +24,7 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setAltura(0.59);
         p.setPeso(90);
-        p.setSexo("M");
+        p.setSexo('M');
         Assert.assertEquals(p.Mensagem(), "Valores Inválidos");
     }
     
@@ -33,7 +33,7 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setPeso(50);
         p.setAltura(1.80);
-        p.setSexo("f");
+        p.setSexo('f');
         Assert.assertEquals(p.Mensagem(), "Você está abaixo do peso recomendado.");
     }
     
@@ -42,7 +42,7 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setPeso(70);
         p.setAltura(1.80);
-        p.setSexo("M");
+        p.setSexo('M');
         Assert.assertEquals(p.Mensagem(), "Você está muito bem! Continue assim!");
     }    
     
@@ -51,7 +51,7 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setPeso(60);
         p.setAltura(1.80);
-        p.setSexo("f");
+        p.setSexo('f');
         Assert.assertEquals(p.Mensagem(), "Você está muito bem! Continue assim!");
     }
     
@@ -60,7 +60,7 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setPeso(100);
         p.setAltura(2.00);
-        p.setSexo("f");
+        p.setSexo('f');
         Assert.assertEquals(p.Mensagem(), "Você está acima do peso recomendado. Cuidado!");
     }
     
@@ -69,7 +69,7 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setPeso(100);
         p.setAltura(1.70);
-        p.setSexo("m");
+        p.setSexo('m');
         System.out.println(p.Mensagem());
         Assert.assertNotSame(p.Mensagem(),  "Você está muito bem! Continue assim!");
     }    
