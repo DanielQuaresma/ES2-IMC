@@ -20,7 +20,7 @@ public class IMC {
     public String calculaImc(double a, int p, char[] se) {
         String msg = "";
         String s = new String(se);
-        s = s.toUpperCase();
+        s= s.toUpperCase();
         
         if ((p <= 0) || (a < 0.60) || (a > 2.40) || (s.equals(""))) {
             msg = "Valores Inválidos";
@@ -29,16 +29,16 @@ public class IMC {
         double c = p / (a * a);
         
         //IMC Baixo
-        if ((c >= 17.9) && (c <= 18.9) && (s.equals("M"))) {
+        if ((c >= 17.9) && (c < 19) && (s.equals("M"))) {
             return msg = "Você está abaixo do peso recomendado.";
         }
 
-        if ((c >= 15) && (c <= 17.9) && (s.equals("F"))) {
+        if ((c >= 15) && (c < 18) && (s.equals("F"))) {
             return msg = "Você está abaixo do peso recomendado.";
         }
 
         //IMC Ideal
-        if ((c >= 19) && (c <= 24.9) && (s.equals("M"))) {
+        if ((c >= 19) && (c < 25) && (s.equals("M"))) {
             return msg = "Você está muito bem! Continue assim!";
         }
 

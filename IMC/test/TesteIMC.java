@@ -70,7 +70,18 @@ public class TesteIMC {
         p.setPeso(100);
         p.setAltura(1.70);
         p.setSexo('m');
-        System.out.println(p.Mensagem());
         Assert.assertNotSame(p.Mensagem(),  "Você está muito bem! Continue assim!");
-    }    
+    }  
+    
+    @Test
+    public void testeCalculoImc(){       
+        double c = 50/Math.pow(1.80,2);
+        Assert.assertEquals(c, 15,4);
+    }
+    
+    @Test
+    public void testeCalculoImc2(){       
+        double c = 60/Math.pow(1.70,2);
+        Assert.assertEquals(c, 20,7);
+    }
 }
