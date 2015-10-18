@@ -71,6 +71,6 @@ public class TesteIMC {
         p.setAltura(1.70);
         p.setSexo("m");
         System.out.println(p.Mensagem());
-        Assert.assertEquals(p.Mensagem(), "Você está Obeso. Procure o acompanhamento de um nutricionista e realizar mais atividades físicas!");
-    }
+        Assert.assertNotSame(p.Mensagem(),  "Você está muito bem! Continue assim!");
+    }    
 }
