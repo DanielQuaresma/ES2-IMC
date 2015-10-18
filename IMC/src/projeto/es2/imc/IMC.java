@@ -17,10 +17,11 @@ public class IMC {
         calcImc = 0;
     }
 
-    public String calculaImc(double a, int p, String s) {
+    public String calculaImc(double a, int p, char[] se) {
         String msg = "";
+        String s = new String(se);
         s = s.toUpperCase();
-
+        
         if ((p <= 0) || (a < 0.60) || (a > 2.40) || (s.equals(""))) {
             msg = "Valores Inválidos";
             return msg;
@@ -64,7 +65,7 @@ public class IMC {
         }
         
         
-        return "";
+        return "Erro";
     }
 
 }
