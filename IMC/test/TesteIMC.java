@@ -53,13 +53,9 @@ public class TesteIMC {
         Pessoa p = new Pessoa();
         p.setPeso(50);
         p.setAltura(1.80);
-        p.setSexo("m");
+        p.setSexo("f");
         System.out.println(p.Mensagem());
         Assert.assertEquals(p.Mensagem(), "Você está abaixo do peso recomendado.");
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }

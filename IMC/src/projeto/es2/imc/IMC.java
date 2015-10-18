@@ -25,10 +25,8 @@ public class IMC {
             msg = "Valores Inválidos";
             return msg;
         }
-
         double c = p / (a*a);
-        //if (c)
-
+       
         if ((c >= 19) && (c <= 24.9) && (s.equals("M"))) {
             return msg = "Você está muito bem! Continue assim!";            
         }
@@ -36,8 +34,17 @@ public class IMC {
         if((c >= 18) && (c <= 24.4) && (s.equals("F"))) {
             return msg = "Você está muito bem! Continue assim!";            
         } 
+        
+       if((c >= 17.9) && (c <= 18.9) && (s.equals("M"))) {
+            return msg = "Você está abaixo do peso recomendado.";            
+       } 
 
-        return "b";
+       if((c >= 15) && (c <= 17.9) && (s.equals("F"))) {
+            return msg = "Você está abaixo do peso recomendado.";            
+       }
+            
+            
+        return "";
     }
 
 }
