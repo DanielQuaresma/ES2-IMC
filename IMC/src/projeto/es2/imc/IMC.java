@@ -23,7 +23,7 @@ public class IMC {
         s= s.toUpperCase();
         
         if ((p <= 0) || (a < 0.60) || (a > 2.40) || (s.equals(""))) {
-            msg = "Valores Inválidos";
+            msg = "Valores Inválidos - Confira os Valores digitados";
             return msg;
         }
         double c = p / (a * a);
@@ -31,6 +31,10 @@ public class IMC {
         //IMC MASCULINO ABAIXO DE 17.9
         if((c < 17.9) &&(s.equals("M")))
             return msg="Valor incorreto para o sexo Masculino";
+        
+        //IMC FEMININO ABAIXO DE  15
+        if((c < 15) && (s.equals("F")))
+            return msg="Valor incorreto para o sexo Feminino";
         
         //IMC Baixo
         if ((c >= 17.9) && (c < 19) && (s.equals("M"))) {
