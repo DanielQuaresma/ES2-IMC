@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package projeto.es2.JFrame;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import projeto.es2.imc.Pessoa;
+
 /**
  *
  * @author DANIEL
@@ -17,14 +20,15 @@ public class JFrameIMC extends javax.swing.JFrame {
     int peso;
     double altura;
     char[] sexo;
+
     /**
-     * 
+     *
      * Creates new form JFrameIMC
      */
     public JFrameIMC() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,6 +52,12 @@ public class JFrameIMC extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculo de IMC");
+
+        jtPeso.setName("Peso"); // NOI18N
+
+        jtAltura.setToolTipText("");
+        jtAltura.setName("Altura"); // NOI18N
+        jtAltura.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Peso");
@@ -127,27 +137,61 @@ public class JFrameIMC extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void ValidaNumero(JTextField Numero) {
+        long valor;
+        if (Numero.getText().length() != 0) {
+            try {
+                valor = Long.parseLong(Numero.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "O Campo " + Numero.getName() + " só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                Numero.grabFocus();
+            }
+        }
+    }
+
+    public void ValidaEntrada(JTextField Numero) {
+        if (Numero.getText().equals(null) || Numero.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "O Campo " + Numero.getName() + " não pode estar vazio", "Informação", JOptionPane.INFORMATION_MESSAGE);
+            Numero.grabFocus();
+            return;
+        }
+    }
+
+    public boolean ValidaAltura(JTextField Numero) {
+        if (!Numero.getText().contains(".")) {
+            JOptionPane.showMessageDialog(null, "O Campo Altura está sendo calculado em metros. Utilizar '.'", "Informação", JOptionPane.INFORMATION_MESSAGE);
+            Numero.grabFocus();
+            return false;
+        }
+        return true;
+    }
+
+
     private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
+        this.ValidaNumero(jtPeso);
+        this.ValidaEntrada(jtPeso);
         peso = Integer.parseInt(jtPeso.getText());
+        this.ValidaNumero(jtAltura);
+        this.ValidaEntrada(jtAltura);
+        if(this.ValidaAltura(jtAltura)){
         altura = Double.parseDouble(jtAltura.getText());
         Pessoa p = new Pessoa();
-        if (masc.isSelected()){
-             p.setPeso(peso);
-             p.setAltura(altura);
-             p.setSexo('M');
+        if (masc.isSelected()) {
+            p.setPeso(peso);
+            p.setAltura(altura);
+            p.setSexo('M');
         }
-        if (femin.isSelected()){
-             p.setPeso(peso);
-             p.setAltura(altura);
-             p.setSexo('F');
-    }
+        if (femin.isSelected()) {
+            p.setPeso(peso);
+            p.setAltura(altura);
+            p.setSexo('F');
+        }
         
-        
-        
-        JOptionPane.showMessageDialog(this,p.Mensagem());
+        JOptionPane.showMessageDialog(this, p.Mensagem());
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCalcularActionPerformed
-     
+
     /**
      * @param args the command line arguments
      */
