@@ -25,7 +25,7 @@ public class TesteIMC {
         p.setAltura(0.59);
         p.setPeso(90);
         p.setSexo('M');
-        Assert.assertEquals(p.Mensagem(), "Valores Inválidos");
+        Assert.assertEquals(p.Mensagem(), "Valores Inválidos - Confira os Valores digitados");
     }
     
     @Test
@@ -84,4 +84,6 @@ public class TesteIMC {
         double c = 60/Math.pow(1.70,2);
         Assert.assertEquals(c, 20,7);
     }
+    
+   
 }
