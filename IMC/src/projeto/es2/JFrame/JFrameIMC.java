@@ -137,24 +137,35 @@ public class JFrameIMC extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void ValidaNumero(JTextField Numero) {
+    public boolean ValidaNumero(JTextField Numero) {
         long valor;
-        if (Numero.getText().length() != 0) {
-            try {
-                valor = Long.parseLong(Numero.getText());
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "O Campo " + Numero.getName() + " só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
-                Numero.grabFocus();
+        if (!Numero.getName().equals("Altura")) {
+            if (Numero.getText().length() != 0) {
+                try {
+                    valor = Long.parseLong(Numero.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "O Campo " + Numero.getName() + " só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                    Numero.grabFocus();
+                    return false;
+                }
+            }
+        } else {
+            if ((Numero.getText().length() != 0) && (!Numero.getText().contains("."))) {
+                try {
+                    valor = Long.parseLong(Numero.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "O Campo " + Numero.getName() + " só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                    Numero.grabFocus();
+                    return false;
+                }
             }
         }
-    }
-
-    public void ValidaEntrada(JTextField Numero) {
         if (Numero.getText().equals(null) || Numero.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "O Campo " + Numero.getName() + " não pode estar vazio", "Informação", JOptionPane.INFORMATION_MESSAGE);
             Numero.grabFocus();
-            return;
+            return false;
         }
+        return true;
     }
 
     public boolean ValidaAltura(JTextField Numero) {
@@ -168,26 +179,26 @@ public class JFrameIMC extends javax.swing.JFrame {
 
 
     private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
-        this.ValidaNumero(jtPeso);
-        this.ValidaEntrada(jtPeso);
-        peso = Integer.parseInt(jtPeso.getText());
-        this.ValidaNumero(jtAltura);
-        this.ValidaEntrada(jtAltura);
-        if(this.ValidaAltura(jtAltura)){
-        altura = Double.parseDouble(jtAltura.getText());
-        Pessoa p = new Pessoa();
-        if (masc.isSelected()) {
-            p.setPeso(peso);
-            p.setAltura(altura);
-            p.setSexo('M');
-        }
-        if (femin.isSelected()) {
-            p.setPeso(peso);
-            p.setAltura(altura);
-            p.setSexo('F');
-        }
-        
-        JOptionPane.showMessageDialog(this, p.Mensagem());
+        if (this.ValidaNumero(jtPeso)) {
+            peso = Integer.parseInt(jtPeso.getText());
+            if (this.ValidaNumero(jtAltura)) {;
+                if (this.ValidaAltura(jtAltura)) {
+                    altura = Double.parseDouble(jtAltura.getText());
+                    Pessoa p = new Pessoa();
+                    if (masc.isSelected()) {
+                        p.setPeso(peso);
+                        p.setAltura(altura);
+                        p.setSexo('M');
+                    }
+                    if (femin.isSelected()) {
+                        p.setPeso(peso);
+                        p.setAltura(altura);
+                        p.setSexo('F');
+                    }
+
+                    JOptionPane.showMessageDialog(this, p.Mensagem());
+                }
+            }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCalcularActionPerformed
